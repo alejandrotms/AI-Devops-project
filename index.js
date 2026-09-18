@@ -60,7 +60,11 @@ app.use((req, res) => {
   });
 });
 
-// Start the server
-app.listen(PORT, () => {
-  console.log(`API server running at http://localhost:${PORT}`);
-});
+// Start the server only when running directly
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`API server running at http://localhost:${PORT}`);
+  });
+}
+
+module.exports = app;

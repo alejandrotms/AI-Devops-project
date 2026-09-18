@@ -1,16 +1,30 @@
 {
-  "name": "express-api",
+  "name": "express-app",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --runInBand"
   },
   "keywords": [],
-  "author": "",
+  "author": "alejandrotms",
   "license": "ISC",
   "dependencies": {
     "express": "^5.2.1"
   },
-  "devDependencies": {},
-  "description": ""
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "supertest": "^7.2.2"
+  },
+  "description": "test",
+  "directories": {
+    "test": "tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alejandrotms/AI-Devops-project.git"
+  },
+  "bugs": {
+    "url": "https://github.com/alejandrotms/AI-Devops-project/issues"
+  },
+  "homepage": "https://github.com/alejandrotms/AI-Devops-project#readme"
 }
