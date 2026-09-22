@@ -22,19 +22,19 @@ app.use((req, res, next) => {
 });
 
 // Health check endpoint
-app.get("/health", (req, res) => {
-  res.json({
-    status: "ok",
-    version: "v1",
-    uptime: process.uptime(),
-    timestamp: new Date().toISOString(),
-  });
-});
+//app.get("/health", (req, res) => {
+//  res.json({
+//    status: "ok",
+//    version: "v1",
+//    uptime: process.uptime(),
+//    timestamp: new Date().toISOString(),
+//  });
+//});
 
 // Error
-// app.get("/health", (req, res) => {
-//   throw new Error("Simulated error for testing purposes");
-// });
+app.get("/health", (req, res) => {
+  throw new Error("Broken v2 health check");
+});
 
 // Mock users endpoint
 app.get("/users", (req, res) => {
