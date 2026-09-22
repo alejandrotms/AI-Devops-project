@@ -16,7 +16,7 @@ jobs:
         run: docker build -t node-app:latest .
 
       - name: Run container(simulation)
-        run: docker run -d -p 3000:3000 node-app:latest 
+        run: docker run -d -p 3000:3000 node-app:latest
       
       - name: Wait for the container to start
         run: sleep 5
