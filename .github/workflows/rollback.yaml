@@ -1,0 +1,28 @@
+name: Rollback
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Git tag to roll back to (e.g. v1.0.0)"
+        required: true
+
+jobs:
+  rollback:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout previous version
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.inputs.tag }}
+
+      - name: Build & push image
+        run: |
+          docker build -t myapp:${{ github.event.inputs.tag }} .
+          # docker push ... (same as your normal deploy workflow)
+
+      - name: Deploy
+        run: |
+          # Same deploy step as your normal workflow
+          # (ssh, kubectl, ecs update-service, etc.)
+          echo "Deploying myapp:${{ github.event.inputs.tag }}"
