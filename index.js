@@ -35,7 +35,7 @@ app.get("/health", (req, res) => {
 // app.get("/health", (req, res) => {
 //   throw new Error("Simulated error for testing purposes");
 // });
-
+ 
 // Mock users endpoint
 app.get("/users", (req, res) => {
   const users = [
