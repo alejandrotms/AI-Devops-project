@@ -1,0 +1,22 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Build Docker image
+        run: docker build -t node-app:latest .
+
+      - name: Run container(simulation)
+        run: docker run -d -p 3000:3000 node-app:latest
+      
+      - name: Verify container is running
+        run: docker ps -a | grep node-app
