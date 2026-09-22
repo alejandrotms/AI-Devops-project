@@ -25,10 +25,16 @@ app.use((req, res, next) => {
 app.get("/health", (req, res) => {
   res.json({
     status: "ok",
+    version: "v1",
     uptime: process.uptime(),
     timestamp: new Date().toISOString(),
   });
 });
+
+// Error
+// app.get("/health", (req, res) => {
+//   throw new Error("Simulated error for testing purposes");
+// });
 
 // Mock users endpoint
 app.get("/users", (req, res) => {
